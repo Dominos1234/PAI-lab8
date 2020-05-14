@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <form method="post" action="RulesRedirect.cshtml">
+        Podaj nową zasadę: <input type="text" name="rule" />
+        <input type="submit" name="submit" />
+
+        
+    </form>
+
+    <ul>
+        @{
+            var rules = new List<string>();
+
+            rules = (List<String>)Session["rules"];
+
+            if (rules != null)
+            {
+                foreach (var rule in rules)
+                {
+                    <li>@rule</li>
+                    }
+                }
+            }
+    </ul>
+</body>
+</html>
